@@ -1,0 +1,484 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+int main() {
+    double  hourlyPay, salaryPay, hoursWorked, fedTax, grossPay, over_Time = 1.5, oT_Hours, dividends, interest, net_Pay, capital_Gains, stateTax;
+    double aK = 0, fL = 0, nV = 0, sD = 0, tN = 0, tX = 0, wY = 0;
+    string payType;
+    string stateLive;
+    string oT;
+    double oASDI = .062, fICA = .0145, social_Security, medicare;
+    double aL_2 = .02, aL_4 = .04, aL_5 = .05, aZ_2 = .0259, aZ_3 = .0334, aZ_4 = .0417, aZ_45 = .045, aR_2 = .02, aR_4 = .04, aR_5 = .055, cA_1 = .01, cA_2 = .02, cA_4 = .04, cA_6 = .06, cA_8 = .08, cA_9 = .093, cA_10 = .103, cA_11 = .113, cA_12 = .123, cA_13 = .133, cO = .045, cT_3 = .03, cT_5 = .05, cT_55 = .055, cT_6 = .06, cT_65 = .065, cT_69 = .069, cT_699 = .0699, dE_2 = .022, dE_3 = .039, dE_4 = .048, dE_52 = .052, dE_55 = .055, dE_6 = .066, gA_1 = .01, gA_2 = .02, gA_3 = .03, gA_4 = .04, gA_5 = .05, gA_57 = .0575;
+    double hI_1 = .014, hI_3 = .0320, hI_5 = .055, hI_64 = .064, hI_68 = .068, hI_72 = .072, hI_76 = .076, hI_79 = .079, hI_8 = .0825, hI_9 = .09, hI_10 = .10, hI_11 = .11, iD_1 = .01, iD_3 = .03, iD_4 = .045, iD_6 = .06, iL = .0495, iN = 0323, iA_033 = .0033, iA_067 = .0067, iA_2 = .0225, iA_4 = .0414, iA_56 = .0563, iA_59 = .0596, iA_6 = .0625, iA_7 = .0744, iA_8 = .0853, kS_3 = .0310, kS_52 = .0525, kS_57 = .0570, kY = .05, lA_1 = .0185, lA_3 = .035, lA_4 = .0425, mE_5 = .0580, mE_6 = .0675, mE_7 = .0715, mD_2 = .02, mD_3 = .03, mD_4 = .04, mD_47 = .0475, mD_5 = .05, mD_525 = .0525, mD_550 = .0550, mD_575 = .0575;
+    double mA = .05, mI = .425, mN_5 = .0535, mN_6 = .068, mN_7 = .0785, mN_9 = .0985, mS_4 = .04, mS_5 = .05, mO_1 = 015, mO_25 = .025, mO_3 = .03, mO_4 = .04, mO_45 = .045, mO_5 = .05, mO_54 = .054, mT_1 = .01, mT_2 = .02, mT_3 = .03, mT_4 = .04, mT_5 = .05, mT_6 = .06, mT_67 = .0675, nE_2 = .0246, nE_3 = .0351, nE_5 = .0501, nE_6 = .0684, nJ_14 = .0014, nJ_17 = .0175, nJ_3 = .0350, nJ_5 = .0525, nJ_6 = .0637, nJ_8 = .0897, nJ_10 = .10750, nM_1 = .0170, nM_3 = .0320, nM_47 = .0470, nM_49 = .049, nM_59 = .059, nY_4 = .04, nY_45 = .045, nY_525 = .0525, nY_585 = .0585, nY_625 = .0625, nY_685 = .0685, nY_9 = .0965, nY_103 = .1030, nY_109 = .1090;
+    double nC = .0499, nD_1 = .0110, nD_204 = .0204, nD_227 = .0227, nD_264 = .0264, nD_290 = .0290, oH_27 = .02765, oH_32 = .03226, oH_36 = .03688, oH_39 = .03990, oK_025 = .0025, oK_075 = .0075, oK_175 = .0175, oK_275 = .0375, oK_475 = .0475, oR_475 = .0475, oR_675 = .0675, oR_875 = .0875, oR_990 = .0990, pA_3 = .0307, rI_375 = .0375, rI_475 = .0475, rI_599 = .0599, sC_0 = 0, sC_3 = .03, sC_4 = .04, sC_5 = .05, sC_6 = .06, sC_7 = .07, uT = .0495, vM_3 = .0335, vM_6 = .0660, vM_7 = .0760, vM_8 = .0875, vA_2 = .02, vA_3 = .03, vA_5 = .05, vA_575 = .0575, wA = .07, wV_3 = .03, wV_4 = .04, wV_45 = .045, wV_6 = .06, wV_65 = .065, wI_3 = .0354, wI_4 = .0465, wI_5 = .0530, wI_7 = .0765; double dC_4 = .04, dC_6 = .06, dC_65 = .065, dC_8 = .0850, dC_92 = .0925, dC_97 = .0975, dC_10 = .1075;
+
+
+    cout << "Welcome to the most accurate federal and local tax calculator of the U.S.A\n\n";
+    cout << "This app was developed for single tax filers only to download married or joint tax filer version please visit our site at https://www.smarttechsolutionllc.com/consumer-small-business-enterprise-electronics\n\n";
+    cout << "This calaculator app was developed to work with the latest tax rates and is updated regularly to reflect the latest tax rates\n\n";
+    cout << " All gross and net pay is based of standard pay frequencies, weekly, bi-weekly, monthly and annually\n\n";
+    cout << "Please feel free to report any inaccuracies to JoeSack@smarttechsolutionllc.com\n\n";
+    system("pause");
+
+    double income;      //initial income
+    double taxedInc;    //how much taxes are
+    double afterTax;    // income after taxes
+
+
+
+    cout << "What is your annual income? " << endl;    //get income
+    cin >> income;
+
+    if (income <= 11000.0)
+    {
+        taxedInc = (income) * .10;       //calculates tax amount
+        afterTax = income - taxedInc;
+
+        cout << "Your income before federal taxes for year 2023 is " << income << "." << endl;
+        cout << "Your tax rate for year 2023 is 10%. " << endl;
+        cout << "Your income after federal taxes for year 2023 is " << afterTax << "." << endl;
+        cout << "Your deducted amount for year 2023 is " << taxedInc << "." << endl;
+
+    }
+    else if (income > 11000 && income <= 44725.00)
+    {
+        taxedInc = (income) * .12;       //calculates tax amount
+        afterTax = income - taxedInc;
+
+        cout << "Your income before federal taxes for year 2023 is " << income << "." << endl;
+        cout << "Your tax rate for year 2023 is 12%. " << endl;
+        cout << "Your income after federal taxes for year 2023 is " << afterTax << "." << endl;
+        cout << "Your deducted amount for year 2023 is " << taxedInc << "." << endl;
+
+    }
+    else if (income > 44725.00 && income <= 95375.00)
+    {
+        taxedInc = (income) * .22;      //calculates tax 
+        afterTax = income - taxedInc;
+
+        cout << "Your income before federal taxes for year 2023 is " << income << "." << endl;
+        cout << "Your federal tax rate for year 2023 is 22%. " << endl;
+        cout << "Your income after federal taxes for year 2023 is " << afterTax << "." << endl;
+        cout << "Your deducted amount for year 2023 is " << taxedInc << "." << endl;
+    }
+    else if (income > 95735.0 && income <= 182100.00)
+    {
+        taxedInc = (income) * .24; //calculates tax 
+        afterTax = (income - taxedInc);
+
+        cout << "Your income before federal taxes for year 2023 is " << income << "." << endl;
+        cout << "Your federal tax rate for year 2023 is 24%. " << endl;
+        cout << "Your income after federal taxes for year 2023 is " << afterTax << "." << endl;
+        cout << "Your deducted amount for year 2023 is " << taxedInc << "." << endl;
+    }
+    else if (income > 182100.0 && income <= 231250.00)
+    {
+        taxedInc = (income) * .32;        //finds tax amount
+        afterTax = (income - taxedInc);
+
+        cout << "Your income before federal taxes for year 2023 is " << income << "." << endl;
+        cout << "Your  federal tax rate for year 2023 is 32%. " << endl;
+        cout << "Your income after federal taxes for year 2023 is " << afterTax << "." << endl;
+        cout << "Your deducted amount for year 2023 is " << taxedInc << "." << endl;
+    }
+    else if (income > 231250.0 && income <= 578125.00)
+    {
+        taxedInc = (income) * .35;        //finds tax amount
+        afterTax = (income - taxedInc);
+
+        cout << "Your income before  federal taxes for year 2023 is " << income << "." << endl;
+        cout << "Your federal tax rate for year 2023 is 35%. " << endl;
+        cout << "Your income after federal taxes for year 2023 is " << afterTax << "." << endl;
+        cout << "Your deducted amount for year 2023 is " << taxedInc << "." << endl;
+    }
+    else if (income > 578125.0)
+    {
+        taxedInc = (income) * .37;        //finds tax amount
+        afterTax = (income - taxedInc);
+
+        cout << "Your income before federal taxes for year 2023 is " << income << "." << endl;
+        cout << "Your federal tax rate for year 2023 is 37%. " << endl;
+        cout << "Your income after federal taxes for year 2023 is " << afterTax << "." << endl;
+        cout << "Your deducted amount for year 2023 is " << taxedInc << "." << endl;
+    }
+    else
+        cout << "You have entered an unuseable number. Please restart the program and enter a positive number " << endl;
+    
+
+    cout << "Now we will determine your paycheck before and after taxes\n\n";
+    
+
+cout << "Is your pay hourly or salary?\n\n";
+cin >> payType;
+if (payType == "salary")
+{
+cout << "What is your annual salary?";
+   cin >> grossPay;
+ }
+{
+    cout << "What state do you live in? no abbreviations\n\n";
+    cin >> stateLive;
+    if (stateLive == "Alabama") (payType == "salary");
+    if (grossPay > 0 <= 500)
+        if (income <= 11000.0)
+
+
+        {
+            fedTax = (grossPay) * .10;
+            stateTax = (grossPay)*aL_2;
+            social_Security = (grossPay)*oASDI;
+            medicare = (grossPay)*fICA;
+            net_Pay = (grossPay)-fedTax - social_Security - medicare - stateTax;
+
+            cout << "Your pay before taxes is: $" << grossPay << endl;
+            cout << "Your federal tax deductions are: $" << fedTax << endl;
+            cout << "Your state tax deductions are: $" << stateTax << endl;
+            cout << "Your social security tax deductions are: $" << social_Security << endl;
+            cout << "Your medicare tax deductions are: $" << medicare << endl;
+            cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+        }
+        else if (stateLive == "Alabama") (payType == "salary");
+    if (income > 11000 && income <= 44725.00)
+        if (grossPay > 500 && grossPay <= 3000)
+
+        {
+            fedTax = (grossPay) * .12;
+            stateTax = (grossPay)*aL_4;
+            social_Security = (grossPay)*oASDI;
+            medicare = (grossPay)*fICA;
+            net_Pay = (grossPay)-fedTax - social_Security - medicare - stateTax;
+
+            cout << "Your pay before taxes is: $" << grossPay << endl;
+            cout << "Your federal tax deductions are: $" << fedTax << endl;
+            cout << "Your state tax deductions are: $" << stateTax << endl;
+            cout << "Your social security tax deductions are: $" << social_Security << endl;
+            cout << "Your medicare tax deductions are: $" << medicare << endl;
+            cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+        }
+        else if (stateLive == "Alabama") (payType == "salary");
+    if (income > 44725.00 && income <= 95375.00)
+        if (grossPay > 3000)
+
+        {
+            fedTax = (grossPay) * .22;
+            stateTax = (grossPay)*aL_5;
+            social_Security = (grossPay)*oASDI;
+            medicare = (grossPay)*fICA;
+            net_Pay = (grossPay)-fedTax - social_Security - medicare - stateTax;
+
+            cout << "Your pay before taxes is: $" << grossPay << endl;
+            cout << "Your federal tax deductions are: $" << fedTax << endl;
+            cout << "Your state tax deductions are: $" << stateTax  << endl;
+            cout << "Your social security tax deductions are: $" << social_Security << endl;
+            cout << "Your medicare tax deductions are: $" << medicare << endl;
+            cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+        }
+        else if (stateLive == "Alabama") (payType == "salary");
+    if (income > 95735.0 && income <= 182100.00)
+        if (grossPay > 3000)
+
+        {
+            fedTax = (grossPay) * .24;
+            stateTax = (grossPay)*aL_5;
+            social_Security = (grossPay)*oASDI;
+            medicare = (grossPay)*fICA;
+            net_Pay = (grossPay)-fedTax - social_Security - medicare - stateTax;
+
+            cout << "Your pay before taxes is: $" << grossPay << endl;
+            cout << "Your federal tax deductions are: $" << fedTax << endl;
+            cout << "Your state tax deductions are: $" << stateTax << endl;
+            cout << "Your social security tax deductions are: $" << social_Security << endl;
+            cout << "Your medicare tax deductions are: $" << medicare << endl;
+            cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+        }
+        else if (stateLive == "Alabama") (payType == "salary");
+    if (income > 182100.0 && income <= 231250.00)
+        if (grossPay > 3000)
+
+        {
+            fedTax = (grossPay) * .32;
+            stateTax = (grossPay)*aL_5;
+            social_Security = (grossPay)*oASDI;
+            medicare = (grossPay)*fICA;
+            net_Pay = (grossPay)-fedTax - social_Security - medicare - stateTax;
+
+            cout << "Your pay before taxes is: $" << grossPay << endl;
+            cout << "Your federal tax deductions are: $" << fedTax << endl;
+            cout << "Your state tax deductions are: $" << stateTax << endl;
+            cout << "Your social security tax deductions are: $" << social_Security << endl;
+            cout << "Your medicare tax deductions are: $" << medicare << endl;
+            cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+        }
+        else if (stateLive == "Alabama") (payType == "salary");
+    if (income > 231250.0 && income <= 578125.00)
+        if (grossPay > 3000)
+
+        {
+
+            fedTax = (grossPay) * .35;
+            stateTax = (grossPay)*aL_5;
+            social_Security = (grossPay)*oASDI;
+            medicare = (grossPay)*fICA;
+            net_Pay = (grossPay)-fedTax - social_Security - medicare - stateTax;
+
+            cout << "Your pay before taxes is: $" << grossPay << endl;
+            cout << "Your federal tax deductions are: $" << fedTax << endl;
+            cout << "Your state tax deductions are: $" << stateTax << endl;
+            cout << "Your social security tax deductions are: $" << social_Security << endl;
+            cout << "Your medicare tax deductions are: $" << medicare << endl;
+            cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+        }
+        else if (stateLive == "Alabama") (payType == "salary");
+    if (income > 578125.0)
+        if (grossPay > 3000)
+
+        {
+
+            fedTax = (grossPay) * .37;
+            stateTax = (grossPay)*aL_5;
+            social_Security = (grossPay)*oASDI;
+            medicare = (grossPay)*fICA;
+            net_Pay = (grossPay)-fedTax - social_Security - medicare - stateTax;
+
+            cout << "Your pay before taxes is: $         " << grossPay << endl;
+            cout << "Your federal tax deductions are: $   " << fedTax << endl;
+            cout << "Your state tax deductions are: $   " << stateTax << endl;
+            cout << "Your social security tax deductions are: $ " << social_Security << endl;
+            cout << "Your medicare tax deductions are: $" << medicare << endl;
+            cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+        }
+        else if (stateLive == "Alaska") (payType == "salary");
+    if (income <= 11000.0)
+
+
+    {
+        fedTax = (grossPay) * .10;
+        
+        social_Security = (grossPay)*oASDI;
+        medicare = (grossPay)*fICA;
+        net_Pay = (grossPay)-fedTax - social_Security - medicare;
+
+        cout << "Your pay before taxes is: $" << grossPay << endl;
+        cout << "Your federal tax deductions are: $" << fedTax << endl;
+        cout << "Your state tax deductions are:" << aK << endl;
+        cout << "Your social security tax deductions are: $" << social_Security << endl;
+        cout << "Your medicare tax deductions are: $" << medicare << endl;
+        cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+    }
+    else if (stateLive == "Alaska") (payType == "salary");
+    if (income > 11000 && income <= 44725.00)  
+
+
+    {
+       
+        fedTax = (grossPay) * .12;
+        social_Security = (grossPay)*oASDI;
+        medicare = (grossPay)*fICA;
+        net_Pay = (grossPay)-fedTax - social_Security - medicare;
+
+        cout << "Your pay before taxes is: $" << grossPay << endl;
+        cout << "Your federal tax deductions are: $" << fedTax << endl;
+        cout << "Your state tax deductions are:" << aK << endl;
+        cout << "Your social security tax deductions are: $" << social_Security << endl;
+        cout << "Your medicare tax deductions are: $" << medicare << endl;
+        cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+    }
+
+    else if (stateLive == "Alaska") (payType == "salary");
+    if (income > 44725.00 && income <= 95375.00)
+
+
+    {
+
+        fedTax = (grossPay) * .22;
+        social_Security = (grossPay)*oASDI;
+        medicare = (grossPay)*fICA;
+        net_Pay = (grossPay)-fedTax - social_Security - medicare;
+
+        cout << "Your pay before taxes is: $" << grossPay << endl;
+        cout << "Your federal tax deductions are: $" << fedTax << endl;
+        cout << "Your state tax deductions are:" << aK << endl ;
+        cout << "Your social security tax deductions are: $" << social_Security << endl;
+        cout << "Your medicare tax deductions are: $" << medicare << endl;
+        cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+    }
+    else if (stateLive == "Alaska") (payType == "salary");
+    if (income > 95735.0 && income <= 182100.00)
+
+
+    {
+
+        fedTax = (grossPay) * .24;
+        social_Security = (grossPay)*oASDI;
+        medicare = (grossPay)*fICA;
+        net_Pay = (grossPay)-fedTax - social_Security - medicare;
+
+        cout << "Your pay before taxes is: $" << grossPay << endl;
+        cout << "Your federal tax deductions are: $" << fedTax << endl;
+        cout << "Your state tax deductions are:" << aK << endl;
+        cout << "Your social security tax deductions are: $" << social_Security << endl;
+        cout << "Your medicare tax deductions are: $" << medicare << endl;
+        cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+    }
+    else if (stateLive == "Alaska") (payType == "salary");
+    if (income > 182100.0 && income <= 231250.00)
+
+
+    {
+
+        fedTax = (grossPay) * .32;
+        social_Security = (grossPay)*oASDI;
+        medicare = (grossPay)*fICA;
+        net_Pay = (grossPay)-fedTax - social_Security - medicare;
+
+        cout << "Your pay before taxes is: $" << grossPay << endl;
+        cout << "Your federal tax deductions are: $" << fedTax << endl;
+        cout << "Your state tax deductions are:" << aK << endl;
+        cout << "Your social security tax deductions are: $" << social_Security << endl;
+        cout << "Your medicare tax deductions are: $" << medicare << endl;
+        cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+    }
+    else if (stateLive == "Alaska") (payType == "salary");
+    if (income > 231250.0 && income <= 578125.00)
+    
+
+
+    {
+
+        fedTax = (grossPay) * .35;
+        social_Security = (grossPay)*oASDI;
+        medicare = (grossPay)*fICA;
+        net_Pay = (grossPay)-fedTax - social_Security - medicare;
+
+        cout << "Your pay before taxes is: $" << grossPay << endl;
+        cout << "Your federal tax deductions are: $" << fedTax << endl;
+        cout << "Your state tax deductions are:" << aK << endl;
+        cout << "Your social security tax deductions are: $" << social_Security << endl;
+        cout << "Your medicare tax deductions are: $" << medicare << endl;
+        cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+    }
+    else if (stateLive == "Alaska") (payType == "salary");
+    if (income > 578125.0)
+        
+    
+
+
+    {
+
+        fedTax = (grossPay) * .37;
+        social_Security = (grossPay)*oASDI;
+        medicare = (grossPay)*fICA;
+        net_Pay = (grossPay)-fedTax - social_Security - medicare;
+
+        cout << "Your pay before taxes is: $" << grossPay << endl;
+        cout << "Your federal tax deductions are: $" << fedTax << endl;
+        cout << "Your state tax deductions are:" << aK << endl;
+        cout << "Your social security tax deductions are: $" << social_Security << endl;
+        cout << "Your medicare tax deductions are: $" << medicare << endl;
+        cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+    }
+   
+}
+
+
+
+if (payType == "hourly")
+{
+
+    string oT;
+    double hourlyPay, grossPay, oT_Hours, hoursWorked, over_Time = 1.5;
+
+    cout << "What is your hourly rate? " << endl;
+    cin >> hourlyPay;
+
+    cout << "Did you work any overtime hours? Type yes or no\n\n";
+    cin >> oT;
+
+    if (oT == "yes")
+    {
+        cout << "How many overtime hours did you work?\n\n";
+        cin >> oT_Hours;
+
+        cout << "How many regular hours did your work?\n\n";
+        cin >> hoursWorked;
+
+
+        grossPay = hourlyPay * hoursWorked + hourlyPay * over_Time * oT_Hours;
+        cout << "Your gross pay is: " << grossPay << endl;
+        system("pause");
+
+    }
+
+    if (oT == "no")
+
+    {
+        cout << "How many regular hours did your work?\n\n";
+        cin >> hoursWorked;
+
+        grossPay = hourlyPay * hoursWorked;
+        cout << "Your gross pay is: " << grossPay << endl;
+
+
+
+
+    }
+
+
+    cout << "What state do you live in? no abbreviations\n\n";
+    cin >> stateLive;
+    if (oT == "no")
+        if (stateLive == "Alabama") (payType == "hourly");
+    if (grossPay > 0 <= 500)
+        if (income <= 11000.0)
+
+
+        {
+            fedTax = (grossPay) * .10;
+            stateTax = (grossPay)*aL_2;
+            social_Security = (grossPay)*oASDI;
+            medicare = (grossPay)*fICA;
+            net_Pay = (grossPay)-fedTax - social_Security - medicare - stateTax;
+
+            cout << "Your pay before taxes is: $" << grossPay << endl;
+            cout << "Your federal tax deductions are: $" << fedTax << endl;
+            cout << "Your state tax deductions are: $" << stateTax << endl;
+            cout << "Your social security tax deductions are: $" << social_Security << endl;
+            cout << "Your medicare tax deductions are: $" << medicare << endl;
+            cout << "Your pay after all tax deductions is: $" << net_Pay << endl;
+        }
+
+
+}
+     
+      
+
+    
+       
+    
+    
+    
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+
+    }
